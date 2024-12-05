@@ -92,7 +92,7 @@ export default function Home() {
 
       {/* Conditionally render and play the video */}
       <div className={showConfetti ? "" : "hidden"}>
-        <h1 className="text-center">.... .- .--. .--. -.-- / -... .. .-. - .... -.. .- -.-- --..-- / ..- --.. --.. .. . .-..</h1>
+        =
         <video
           ref={videoRef} // Attach the video ref here
           width="320"
