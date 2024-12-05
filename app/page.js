@@ -62,9 +62,17 @@ export default function Home() {
     }, 50); // 50ms delay to reset the state properly
   };
 
+  // Function to stop the video if confetti is not showing
+  useEffect(() => {
+    if (!showConfetti && videoRef.current) {
+      videoRef.current.pause(); // Pause the video when confetti is not showing
+      videoRef.current.currentTime = 0; // Reset the video to the beginning
+    }
+  }, [showConfetti]); // Dependency on showConfetti state
+
   return (
     <div className="relative flex flex-col items-center justify-center min-h-screen p-4 overflow-hidden">
-      {/* Render Confetti with fade-out effect */}
+      {/* Render Confetti with straight fall (no wind) */}
       {showConfetti && (
         <div
           className={`absolute top-0 left-0 w-full h-full transition-opacity duration-300 ${
@@ -77,7 +85,7 @@ export default function Home() {
             recycle={true} // Stop recycling particles
             numberOfPieces={800} // Increase number of particles
             gravity={0.2} // Adjust fall speed
-            wind={Math.random() * 0.2 - 0.1} // Random wind for variety
+            wind={0} // No wind for straight fall
           />
         </div>
       )}
@@ -88,7 +96,7 @@ export default function Home() {
           ref={videoRef} // Attach the video ref here
           width="320"
           playsInline
-          autoPlay // This ensures the video plays immediately after being shown
+          autoPlay={false} // Disable autoplay initially
           loop
           height="240"
           controls={false} // Hide controls
