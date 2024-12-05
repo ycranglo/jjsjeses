@@ -96,7 +96,7 @@ export default function Home() {
             ref={videoRef} // Attach the video ref here
             width="320"
             playsInline
-            autoPlay={false} // Disable autoplay initially
+            autoPlay={true} // Disable autoplay initially
             loop
             height="240"
             controls={false} // Hide controls
