@@ -83,7 +83,7 @@ export default function Home() {
             width={windowDimensions.width}
             height={windowDimensions.height}
             recycle={true} // Stop recycling particles
-            numberOfPieces={800} // Increase number of particles
+            numberOfPieces={500} // Increase number of particles
             gravity={0.05} // Slow down the fall speed by reducing gravity
             wind={0} // No wind for straight fall
           />
