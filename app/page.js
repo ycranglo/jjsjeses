@@ -100,13 +100,14 @@ export default function Home() {
         <h1 className="text-5xl text-center font-bold">Hapi bday, Uzziel!</h1>
         <video
           ref={videoRef}
+           loading="lazy"
+  preload="metadata"
           width="320"
           playsInline
           autoPlay={false}
           loop
           height="240"
           controls={false}
-          preload="none"
         >
           <source src="/bdayy.mp4" type="video/mp4" />
           Your browser does not support the video tag.
