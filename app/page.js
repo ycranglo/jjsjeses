@@ -71,7 +71,7 @@ export default function Home() {
 
   return (
     <div className="relative flex flex-col items-center justify-center min-h-screen p-4 overflow-hidden">
-      {/* Render Confetti with slow falling speed */}
+      {/* Render Confetti with slow falling speed and no horizontal wind */}
       {showConfetti && (
         <div
           className={`absolute top-0 left-0 w-full h-full transition-opacity duration-300 ${
@@ -84,7 +84,7 @@ export default function Home() {
             recycle={true} // Stop recycling particles
             numberOfPieces={800} // Increase number of particles
             gravity={0.05} // Slow down the fall speed by reducing gravity
-            wind={Math.random() * 0.2 - 0.1} // Random wind for variety
+            wind={0} // No horizontal wind, so the confetti falls straight down
           />
         </div>
       )}
