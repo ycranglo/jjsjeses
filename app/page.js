@@ -93,7 +93,6 @@ export default function Home() {
       {showVideo && (
         <div className="">
           <video
-            ref={videoRef} // Attach the video ref here
             width="320"
             playsInline
             autoPlay={true} // Disable autoplay initially
