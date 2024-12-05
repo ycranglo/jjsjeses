@@ -16,7 +16,7 @@ const geistMono = localFont({
 });
 
 export const metadata = {
-  title: "Happyyyy birtttttttdayyyyy tooooo youuuuu",
+  title: "hi hbd.",
   description: "nullable",
 };
 
