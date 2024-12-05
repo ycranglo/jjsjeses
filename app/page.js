@@ -12,6 +12,7 @@ export default function Home() {
     width: 0,
     height: 0,
   });
+  const [showVideo, setShowVideo] = useState(false); // Track video visibility
 
   const videoRef = useRef(null); // Reference to the video element
 
@@ -48,6 +49,9 @@ export default function Home() {
     setTimeout(() => {
       setShowConfetti(true);
 
+      // Show the video after the button is clicked
+      setShowVideo(true);
+
       // Play the video
       if (videoRef.current) {
         videoRef.current.play();
@@ -65,17 +69,9 @@ export default function Home() {
     }, 50); // 50ms delay to reset the state properly
   };
 
-  // Function to generate random positions
-  const getRandomPosition = () => {
-    const x = Math.floor(Math.random() * windowDimensions.width);
-    const y = Math.floor(Math.random() * windowDimensions.height);
-    console.log(`Random Position: x = ${x}, y = ${y}`);
-    return { x, y };
-  };
-
   return (
     <div className="relative flex flex-col items-center justify-center min-h-screen p-4 overflow-hidden">
-      {/* Render Confetti with fade-out effect */}
+      {/* Render Confetti with slow falling speed */}
       {showConfetti && (
         <div
           className={`absolute top-0 left-0 w-full h-full transition-opacity duration-300 ${
@@ -87,28 +83,30 @@ export default function Home() {
             height={windowDimensions.height}
             recycle={true} // Stop recycling particles
             numberOfPieces={800} // Increase number of particles
-            gravity={0.2} // Adjust fall speed
+            gravity={0.05} // Slow down the fall speed by reducing gravity
             wind={Math.random() * 0.2 - 0.1} // Random wind for variety
           />
         </div>
       )}
 
-      {/* Center image */}
-      <div className="">
-        <video
-          ref={videoRef} // Attach the video ref here
-          width="320"
-          playsInline
-          autoPlay={false} // Disable autoplay initially
-          loop
-          height="240"
-          controls={false} // Hide controls
-          preload="none"
-        >
-          <source src="/bdayy.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      </div>
+      {/* Conditionally render the video */}
+      {showVideo && (
+        <div className="">
+          <video
+            ref={videoRef} // Attach the video ref here
+            width="320"
+            playsInline
+            autoPlay={false} // Disable autoplay initially
+            loop
+            height="240"
+            controls={false} // Hide controls
+            preload="none"
+          >
+            <source src="/bdayy.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      )}
 
       {/* Button to trigger Confetti */}
       {showButton && (
