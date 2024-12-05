@@ -1,6 +1,7 @@
 'use client';
 import { useState, useEffect, useRef } from "react";
 import Confetti from "react-confetti";
+import Image from "next/image";
 
 export default function Home() {
   const [showConfetti, setShowConfetti] = useState(false);
@@ -89,23 +90,28 @@ export default function Home() {
           />
         </div>
       )}
-
       {/* Conditionally render and play the video */}
-      <div className={showConfetti ? "" : "hidden"}>
-        =
+      {/* Conditionally render and animate the video and content */}
+      <div
+        className={`transition-opacity duration-1000 ${
+          showConfetti ? "opacity-100" : "opacity-0 pointer-events-none"
+        }`}
+      >
+        <h1 className="text-5xl text-center font-bold">Hapi bday, Uzziel!</h1>
         <video
-          ref={videoRef} // Attach the video ref here
+          ref={videoRef}
           width="320"
           playsInline
-          autoPlay={false} // Disable autoplay initially
+          autoPlay={false}
           loop
           height="240"
-          controls={false} // Hide controls
+          controls={false}
           preload="none"
         >
           <source src="/bdayy.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
+        <Image src="/danceCat3.gif" alt="alt" width={200} height={200} />
       </div>
 
       {/* Button to trigger Confetti */}
@@ -114,7 +120,7 @@ export default function Home() {
           className="px-4 py-2 text-white bg-pink-500 rounded-lg"
           onClick={triggerConfetti}
         >
-          click me
+          click me!
         </button>
       )}
     </div>
