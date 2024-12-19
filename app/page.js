@@ -72,9 +72,11 @@ export default function Home() {
   }, [showConfetti]); // Dependency on showConfetti state
 
   return (
+    
     <div className="relative flex flex-col items-center justify-center min-h-screen p-4 overflow-hidden">
+      di mo naman birthday 😝
       {/* Render Confetti with slow fall (adjusted gravity for slow effect) */}
-      {showConfetti && (
+      {/* {showConfetti && (
         <div
           className={`absolute top-0 left-0 w-full h-full transition-opacity duration-300 ${
             fadeOut ? "opacity-0" : "opacity-100"
@@ -89,10 +91,10 @@ export default function Home() {
             wind={0} // No wind for straight fall
           />
         </div>
-      )}
+      )} */}
       {/* Conditionally render and play the video */}
       {/* Conditionally render and animate the video and content */}
-      <div
+      {/* <div
         className={`transition-opacity duration-1000 ${
           showConfetti ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
@@ -113,17 +115,17 @@ export default function Home() {
           Your browser does not support the video tag.
         </video>
         <Image src="/danceCat3.gif" alt="alt" width={200} height={200} />
-      </div>
+      </div> */}
 
       {/* Button to trigger Confetti */}
-      {showButton && (
+      {/* {showButton && (
         <button
           className="px-4 py-2 text-white bg-pink-500 rounded-lg"
           onClick={triggerConfetti}
         >
           click me!
         </button>
-      )}
+      )} */}
     </div>
   );
 }
